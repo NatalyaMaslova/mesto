@@ -8,23 +8,25 @@
 </head>
 <body class="root">
     
-  <header class="header">
+  <header class="header wrapper">
     <img class="header__logo" src="./images/logo.svg" alt="logo">
   </header>
 
   <main class="content">
 
-    <section class="profile">
-      <img class="profile__avatar" src="./images/image.jpg" alt="avatar">
-      <div class="profile__info">
-        <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <p class="profile__about-me">Исследователь океана</p>
-        <input class="edit-button" type="image" src="./images/editbutton.svg" alt="" name="editButton">
-      </div> 
-        <input class="add-button" type="image" src="./images/addbutton.svg" alt="" name="addButton">   
+    <section class="profile wrapper">
+      <div class="profile__page">
+        <img class="profile__avatar" src="./images/image.jpg" alt="avatar">
+        <div class="profile__info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <input class="edit-button" type="image" src="./images/Edit Button.svg" alt="" name="editButton">
+          <p class="profile__about-me">Исследователь океана</p>
+        </div>
+      </div>
+      <input class="add-button" type="image" src="./images/Add Button.svg" alt="" name="addButton">
     </section>
 
-    <section class="places">
+    <section class="places wrapper">
       <div class="place">
         <img class="place__photo" src="./images/karachaevsk.jpg" alt="">
         <h2 class="place__title">Карачаевск</h2>
@@ -52,14 +54,14 @@
       </div>
       <div class="place">
         <img class="place__photo" src="./images/karachaevsk.jpg" alt="">
-        <h2 class="place__title">Карачаево-Черкесская Республика</h2>
+        <h2 class="place__title">Карачаево-Черкессия</h2>
         <img class="place__like" src="images/Like.svg" alt="Like">
       </div>
     </section>
 
   </main>
 
-  <footer>
+  <footer class="footer wrapper">
     <p class="footer__copyright">&copy; Mesto Russia</p>
   </footer>
 
