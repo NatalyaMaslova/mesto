@@ -1,0 +1,8 @@
+.places {
+  display: grid;
+  grid-template-columns: repeat(3, 282px);
+  grid-template-rows: repeat(2, 361px);
+  column-gap: 18px;
+  row-gap: 21px;
+  padding-top: 51px;
+}
