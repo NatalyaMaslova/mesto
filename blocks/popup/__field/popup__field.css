@@ -1,0 +1,11 @@
+.popup__field {
+  position: relative;
+  display: block;
+  width: 358px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  opacity: .2;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 13px;
+}
