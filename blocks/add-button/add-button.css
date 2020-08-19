@@ -25,6 +25,12 @@
   right: 0;
 }
 
+.add-button:hover {
+  opacity: .6;
+  transition: opacity .5s linear;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .add-button {
     background: url(../../images/add_button_320.svg) no-repeat center bottom;
