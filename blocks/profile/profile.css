@@ -1,7 +1,18 @@
 .profile {
   padding-top: 40px;
   min-height: 120px;
+  position: relative;
+  /*box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between;*/
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+    height: 286px;
+    padding-top: 42px;
+  }
 }
