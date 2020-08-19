@@ -1,8 +1,9 @@
 .edit-button {
-  background: url(../../images/Edit_Button.svg) no-repeat right center;
+  background: url(../../images/Edit_Button.svg) no-repeat right top;
   width: 24px;
   height: 24px;
   padding-left: 17px;
+  padding-bottom: 10px;
   display: inline-block;
 }
 

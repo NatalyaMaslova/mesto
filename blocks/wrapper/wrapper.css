@@ -1,11 +1,6 @@
-/*.wrapper {
-  margin-left: calc((100vw - 882px)/2);
-  margin-right: calc((100vw - 882px)/2);
-  
-}*/
 .wrapper {
-  margin-left: 199px;
-  margin-right: 199px;
+  margin-left: 190px; /*из-за вертикального скролла пришлось уменьшить отступы*/
+  margin-right: 190px;
 }
 
 @media screen and (max-width: 1279px) and (min-width: 1024px) {
