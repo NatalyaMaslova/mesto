@@ -10,7 +10,7 @@
 } */
 
 .popup__container {
-  position: fixed;
+  position: relative;
   z-index: 3;
   width: 430px;
   height: 330px;

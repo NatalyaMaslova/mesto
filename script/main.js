@@ -8,12 +8,12 @@ let name = document.querySelector('.profile__name');
 let job = document.querySelector('.profile__about-me');
 
 function popupToggle () {
-  if(!popup.classList.contains('popup__opened')) {
+  if(!popup.classList.contains('popup_opened')) {
     nameInput.value = name.textContent;
     jobInput.value = job.textContent;
-    popup.classList.toggle('popup__opened');
+    popup.classList.toggle('popup_opened');
   } else {
-    popup.classList.toggle('popup__opened');
+    popup.classList.toggle('popup_opened');
   }
 }
 
