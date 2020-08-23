@@ -8,3 +8,17 @@
   padding-top: 34px;
   padding-bottom: 50px;
 }
+
+@media screen and (max-width: 530px) {
+  .popup__title {
+    font-size: 17px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 419px) {
+  .popup__title {
+    padding-bottom: 20px;
+    padding-top: 25px;
+  }
+}

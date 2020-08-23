@@ -10,10 +10,26 @@
   padding: 0;
   border-radius: 2px;
   margin-top: 40px;
+  margin-bottom: 35px;
   cursor: pointer;
   transition: opacity .5s linear;
 }
 
 .popup__submit-button:hover {
   opacity: .8;
+}
+
+@media screen and (max-width: 530px) {
+  .popup__submit-button {
+    width: 70vw;
+  }
+}
+
+@media screen and (max-width: 419px) {
+  .popup__submit-button {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    height: 40px;
+    font-size: 14px;
+  }
 }

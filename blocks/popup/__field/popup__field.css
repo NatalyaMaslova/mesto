@@ -17,3 +17,16 @@
 .popup__field:first-of-type {
   margin-bottom: 30px;
 }
+
+@media screen and (max-width: 530px) {
+  .popup__field {
+    width: 70vw;
+  }
+}
+
+@media screen and (max-width: 419px) {
+  .popup__field:first-of-type {
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+}
