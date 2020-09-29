@@ -1,0 +1,15 @@
+.popup__container_type_zoom-photo {
+  max-width: 75vw;
+  max-height: 75vh;
+  background-color: transparent;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+  box-shadow: none;
+  margin: 0;
+  text-align: center;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  
+}

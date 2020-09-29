@@ -31,5 +31,18 @@
     margin-bottom: 15px;
     height: 40px;
     font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .popup__submit-button {
+    margin-top: 25px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    width: 200px;
+    padding-top: 12px;
+    padding-bottom: 14px;
+    box-sizing: border-box;
   }
 }

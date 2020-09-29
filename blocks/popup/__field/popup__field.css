@@ -30,3 +30,13 @@
     font-size: 12px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .popup__field {
+    width: 200px;
+    padding-bottom: 12px;
+  }
+  .popup__field:first-of-type {
+    margin-bottom: 20px;
+  }
+}

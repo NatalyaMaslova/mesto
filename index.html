@@ -1,8 +1,3 @@
-<!-- Доброго времени суток, Никита)
-У меня горизонтальный скролл не отображается.
-Остальные обязательные комментарии исправила, предложения по улучшению обязательно исправлю, 
-но позже.
-Огромное спасибо за классное ревью. Хорошего дня:)-->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -32,65 +27,56 @@
     </section>
 
     <section class="places root__section">
-      <div class="place">
-        <img class="place__photo" src="./images/karachaevsk.jpg" alt="Карачаевчк">
-        <div class="place__description">
-          <h2 class="place__title">Карачаевск</h2>
-          <button type="button" class="place__like" aria-label="Like"></button>
-        </div>
-      </div>
-      <div class="place">
-        <img class="place__photo" src="./images/elbrus.jpg" alt="Эльбрус">
-        <div class="place__description">
-          <h2 class="place__title">Гора Эльбрус</h2>
-          <button type="button" class="place__like" aria-label="Like"></button>
-        </div>
-      </div>
-      <div class="place">
-        <img class="place__photo" src="./images/dombai.jpg" alt="Домбай">
-        <div class="place__description">
-          <h2 class="place__title">Домбай</h2>
-          <button type="button" class="place__like" aria-label="Like"></button>
-        </div>
-      </div>
-      <div class="place">
-        <img class="place__photo" src="./images/elbrus.jpg" alt="Эльбрус">
-        <div class="place__description">
-          <h2 class="place__title">Гора Эльбрус</h2>
-          <button type="button" class="place__like" aria-label="Like"></button>
-        </div>
-      </div>
-      <div class="place">
-        <img class="place__photo" src="./images/dombai.jpg" alt="Домбай">
-        <div class="place__description">
-          <h2 class="place__title">Домбай</h2>
-          <button type="button" class="place__like" aria-label="Like"></button>
-        </div>
-      </div>
-      <div class="place">
-        <img class="place__photo" src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия">
-        <div class="place__description">
-          <h2 class="place__title">Карачаево-Черкессия</h2>
-          <button type="button" class="place__like" aria-label="Like"></button>
-        </div>
-      </div>
+      <ul class="places__list">
+      </ul>
     </section>
-
+   
   </main>
 
   <footer class="footer root__section">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
 
-  <div class="popup">
-    <form class="popup__container" method="POST" name="Edit_form">
+  <template class="place-template">
+    <li class="place">
+      <img class="place__photo" src="#" alt="#">
+      <button type="button" class ="place__delete" aria-label="Удалить"></button>
+      <div class="place__description">
+        <h2 class="place__title">Карачаевск</h2>
+        <button type="button" class="place__like" aria-label="Like"></button>
+      </div>
+    </li>
+  </template>
+
+  <div class="popup popup_type_edit-profile">
+    <form class="popup__container popup__container_type_edit-profile" method="POST" name="Edit_form">
       <h3 class="popup__title">Редактировать профиль</h3>
       <input class="popup__field popup__field_type_name" type="text" name="Name" placeholder="Имя">
       <input class="popup__field popup__field_type_about-me" type="text" name="About_me" 
       placeholder="О себе">
-      <button class="popup__submit-button" type="submit">Сохранить</button>
-      <button class="popup__close-button" type="reset"></button>
+      <button class="popup__submit-button popup__submit-button_type_edit-profile" type="submit">Сохранить</button>
+      <button class="popup__close-button popup__close-button_type_edit-profile" type="reset"></button>
     </form>
+  </div>
+
+  <div class="popup popup_type_add-card">
+    <form class="popup__container popup__container_type_add-card" method="POST" name="Add_form">
+      <h3 class="popup__title">Новое место</h3>
+      <input class="popup__field popup__field_type_place-name" type="text" name="Place_name" 
+      placeholder="Название">
+      <input class="popup__field popup__field_type_link" type="link" name="Link" 
+      placeholder="Ссылка на картинку">
+      <button class="popup__submit-button popup__submit-button_type_add-card" type="submit">Создать</button>
+      <button class="popup__close-button popup__close-button_type_add-card" type="reset"></button>
+    </form>
+  </div>
+
+  <div class="popup popup_type_zoom-photo">
+    <div class="popup__container popup__container_type_zoom-photo"> 
+      <img class="place__photo place__photo_zoom" src="#" alt="#">
+      <h3 class="place__title place__title_zoomed"></h3>
+      <button class="popup__close-button popup__close-button_type_zoom-photo" type="reset"></button>
+    </div>
   </div>
 
 <script src="./scripts/script/main.js"></script>

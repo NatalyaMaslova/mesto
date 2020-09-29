@@ -1,6 +1,7 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/inter.css);
 @import url(../blocks/root/root.css);
+@import url(../blocks/content/content.css);
 @import url(../blocks/root/__section/root__section.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
@@ -12,18 +13,26 @@
 @import url(../blocks/profile/__about-me/profile__about-me.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/places/places.css);
+@import url(../blocks/places/__list/places__list.css);
 @import url(../blocks/place/place.css);
 @import url(../blocks/place/__photo/place__photo.css);
+@import url(../blocks/place/__photo/_zoom/place__photo_zoom.css);
+@import url(../blocks/place/__delete/place__delete.css);
 @import url(../blocks/place/__description/place__description.css);
 @import url(../blocks/place/__title/place__title.css);
+@import url(../blocks/place/__title/_zoomed/place__title_zoomed.css);
 @import url(../blocks/place/__like/place__like.css);
+@import url(../blocks/place/__like/_active/place__like_active.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_type/popup_type_zoom-photo.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__container/_type/popup__container_type_zoom-photo.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__field/popup__field.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
+@import url(../blocks/popup/__close-button/_type/popup__close-button_type_zoom-photo.css);
 
