@@ -1,9 +1,13 @@
-.place__title_zoomed {
+.popup__description {
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 30px;
   padding-top: 10px;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 15px;
   align-self: start;
-  
 }
