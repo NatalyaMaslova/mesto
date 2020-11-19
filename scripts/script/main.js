@@ -1,3 +1,4 @@
+const popup = document.querySelector('.popup');
 const editProfilePopup = document.querySelector('.popup_type_edit-profile'); //попап редактирования профиля
 const addCardPopup = document.querySelector('.popup_type_add-card'); //попап добавления карточки места
 const zoomPhotoPopup = document.querySelector('.popup_type_zoom-photo');
@@ -7,13 +8,13 @@ const addCardPopupOpenButton = document.querySelector('.profile__add-button');//
 const addCardPopupCloseButton = addCardPopup.querySelector('.popup__close-button_type_add-card');//закр-е попапа нового места
 const formElement = document.querySelector('.popup__container_type_edit-profile');//контейнер редакт.проф-я
 const cardElement = document.querySelector('.popup__container_type_add-card');//конт-р карточки места
-const nameInput = document.querySelector('.popup__field_type_name');//поле ввода ИМЯ
-const jobInput = document.querySelector('.popup__field_type_about-me');//поле ввода о себе
+const nameInput = editProfilePopup .querySelector('.popup__field_type_name');//поле ввода ИМЯ
+const jobInput = editProfilePopup .querySelector('.popup__field_type_about-me');//поле ввода о себе
 const name = document.querySelector('.profile__name');//поле пр-я имя
 const job = document.querySelector('.profile__about-me');//поле профиля о себе
 const placeNameInput = document.querySelector('.popup__field_type_place-name');//поле ввода наз-я места
 const linkInput = document.querySelector('.popup__field_type_link');//поле ввода ссылки
-let placesList = document.querySelector('.places__list');//список мест
+const placesList = document.querySelector('.places__list');//список мест
 const zoomedPhoto = document.querySelector('.place__photo_zoom');
 const zoomPhotoCloseButton = document.querySelector('.popup__close-button_type_zoom-photo');
 const zoomedPhotoCaption = document.querySelector('.place__title_zoomed');
@@ -44,30 +45,44 @@ const initialCards = [
   }
 ];
 
-//ф-ция добавления карточек из массива
-function render () {
-  initialCards.forEach(renderCards);
-  setListeners();
-}
 
-function renderCards({name, link}) {
-  const placeTemplate = document.querySelector('.place-template').content;
+const placeTemplate = document.querySelector('.place-template').content;
+
+//функция создания карточки
+function createCard(cardData) {
   const placeElement = placeTemplate.cloneNode(true);
-  placeElement.querySelector('.place__photo').src = link;
-  placeElement.querySelector('.place__photo').alt = name;
-  placeElement.querySelector('.place__title').textContent = name;
-  placesList.appendChild(placeElement);
+  placeElement.querySelector('.place__photo').src = cardData.link;
+  placeElement.querySelector('.place__photo').alt = cardData.name;
+  placeElement.querySelector('.place__title').textContent = cardData.name;
+  placeElement.querySelector('.place__like').addEventListener('click', function(evt) {
+      evt.target.classList.toggle('place__like_active');
+    });
+  placeElement.querySelector('.place__delete').addEventListener('click', function(evt) {
+      evt.target.parentElement.remove();
+    });
+  placeElement.querySelector('.place__photo').addEventListener('click', zoomPhoto);
+  
+    return placeElement;
 }
 
-//ф-ция открытия/закрытия попапа редактирования профиля
-function popupEditProfileToggle () {
-  if(!editProfilePopup.classList.contains('popup_opened')) {
-    nameInput.value = name.textContent;
-    jobInput.value = job.textContent;
-    editProfilePopup.classList.toggle('popup_opened');
-  } else {
-    editProfilePopup.classList.toggle('popup_opened');
-  }
+//функция отрисовки карточек "из коробки"
+function render () {
+  initialCards.forEach(cardData => {
+    const placeElement = createCard(cardData)
+    placesList.append(placeElement);
+  });
+}
+
+//функия добавления карточек на страницу
+function addCard (evt) {
+  const cardData = {
+    link:linkInput.value,
+    name: placeNameInput.value
+  };
+  evt.preventDefault(); 
+  const placeElement = createCard(cardData);
+  placesList.prepend(placeElement);
+  popupAddCard();
 }
 
 //ф-ция редактирования профиля
@@ -78,67 +93,51 @@ function formSubmitHandler (evt) {
   popupEditProfileToggle();
 }
 
-//ф-ция открытия/закрытия попапа добавления карточки
+//функция закрытия попапов
+function popupToggle (popup) {
+  popup.classList.toggle('popup_opened');
+}
+
+//ф-ция открытия попапа редактирования профиля
+function popupEditProfileToggle () {
+  if(!editProfilePopup.classList.contains('popup_opened')) {
+    nameInput.value = name.textContent;
+    jobInput.value = job.textContent;
+  };
+    popupToggle(editProfilePopup);
+}
+
+//ф-ция открытия попапа добавления карточки
 function popupAddCard () {
   if(!addCardPopup.classList.contains('popup_opened')) {
     placeNameInput.value = '';
     linkInput.value = '';
-    addCardPopup.classList.toggle('popup_opened');
-  } else {
-    addCardPopup.classList.toggle('popup_opened');
-  }
+  };
+    popupToggle(addCardPopup);
 }
   
-//ф-ция добавления карточки
-function addCardSubmitHandler (evt) {
-  evt.preventDefault(); 
-  initialCards.unshift({name: placeNameInput.value, link: linkInput.value});
-  popupAddCard();
-  placesList.innerHTML = '';
-  render();
-  
-}
-
 //фун-ция зума фото
 function zoomPhoto (event) {
   if(!zoomPhotoPopup.classList.contains('popup_opened')) {
-    zoomPhotoPopup.classList.toggle('popup_opened');
     const openPhoto = event.target;
     zoomedPhoto.src = openPhoto.src;
     zoomedPhoto.alt = openPhoto.alt;
     zoomedPhotoCaption.textContent = openPhoto.alt;
-  } else {
-    zoomPhotoPopup.classList.toggle('popup_opened');
-  }
-}
-
-//слушатели лайка и уделения карточки и ф-ция для лайка
-function setListeners() {
-  document.querySelectorAll('.place__like').forEach((btn) => {
-    btn.addEventListener('click', function(evt) {
-      evt.target.classList.toggle('place__like_active');
-    })
-  });
-  document.querySelectorAll('.place__delete').forEach((btn) => {
-    btn.addEventListener('click', function(evt) {
-      evt.target.parentElement.remove();
-    });
-  });
-  document.querySelectorAll('.place__photo').forEach((btn) => {
-    btn.addEventListener('click', zoomPhoto);
-  });
-}
+  };
+    popupToggle(zoomPhotoPopup);
+};
 
 render();
 
 //слушатели для попапа ред-я профиля
 editProfilePopupOpenButton.addEventListener('click', popupEditProfileToggle);
-editProfilePopupCloseButton.addEventListener('click', popupEditProfileToggle);
+editProfilePopupCloseButton.addEventListener('click', () => popupToggle(editProfilePopup));
 formElement.addEventListener('submit', formSubmitHandler);
 
 //слушатели для попапа нового места
 addCardPopupOpenButton.addEventListener('click', popupAddCard);
-addCardPopupCloseButton.addEventListener('click', popupAddCard);
-cardElement.addEventListener('submit', addCardSubmitHandler);
+addCardPopupCloseButton.addEventListener('click', () => popupToggle(addCardPopup));
+cardElement.addEventListener('submit', addCard);
 
-zoomPhotoCloseButton.addEventListener('click', zoomPhoto);
+//слушатель для попапа зума фото
+zoomPhotoCloseButton.addEventListener('click', () => popupToggle(zoomPhotoPopup));
